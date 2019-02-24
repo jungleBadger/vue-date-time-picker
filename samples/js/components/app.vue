@@ -31,7 +31,7 @@
 	module.exports = {
 		"name": "App",
 		"components": {
-			"DateTimePicker": require("../../../../../vue-date-time-picker").DateTimePicker
+			"DateTimePicker": require("../../../dist/js/bundle").DateTimePicker
 		},
 		"data": function() {
 			return {

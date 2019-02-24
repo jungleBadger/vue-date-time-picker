@@ -72,6 +72,28 @@
 
 			done();
 			return isProd ? log("FINISHED PRODUCTION BUILD") : log("FINISHED DEV BUILD");
+		},
+		"bundleSamples": function bundleJS(done = (() => false)) {
+			if (isProd) {
+				fse.remove("samples/dist/js/bundle.js.map");
+			}
+			browserifyInstance.bundle()
+				.on("error", function (err) {
+					log(err);
+				})
+				.pipe(source("samples/js/main.js"))
+				.pipe(cond(!isProd, plumber()))
+				.pipe(buffer())
+				.pipe(rename("bundle.js"))
+				.pipe(terser({
+					"module": true
+				}))
+				.pipe(cond(!isProd, sourcemaps.init({"loadMaps": true})))
+				.pipe(cond(!isProd, sourcemaps.write("./")))
+				.pipe(gulp.dest("./samples/dist/js/"));
+
+			done();
+			return isProd ? log("FINISHED PRODUCTION BUILD") : log("FINISHED DEV BUILD");
 		}
 	};
 
@@ -129,6 +151,27 @@
 
 	gulp.task("build", gulp.parallel("lint", "js", "css"));
 
+	gulp.task("build-samples", function (done) {
+		let modulePath = "samples";
+		browserifyInstance = browserify({
+			"entries": modulePath + "/js/main.js",
+			"noParse": ["vue.js"],
+			"plugin": argv.w || argv.watch ? [watchify] : [],
+			"cache": {},
+			"packageCache": {},
+			"debug": !isProd
+		}).transform("envify", {
+			"global": true,
+			"NODE_ENV": process.env.NODE_ENV,
+			"transform": [["babelify", { "presets": ["@babel/preset-env"] }]]
+		})
+			.transform(vueify)
+			.on("update", function () {
+				methods.bundleJS(done);
+			});
+
+		return methods.bundleSamples(done);
+	});
 
 	process.on("exit", function (code) {
 		log("About to exit with code:", code);
