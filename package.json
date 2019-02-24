@@ -1,7 +1,7 @@
 {
   "name": "vue-date-time-picker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Open source vue.js component to handle date and time values\n",
   "main": "./dist/js/bundle.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -75,6 +75,13 @@
     "watchify": "^3.11.1"
   },
   "dependencies": {},
-  "author": "jungle_d",
-  "license": "ISC"
+  "author": "jungleBadger",
+  "license": "ISC",
+	"bugs": {
+		"url" : "https://github.com/jungleBadger/vue-date-time-picker/issues"
+	},
+	"repository": {
+		"type" : "git",
+		"url" : "https://github.com/jungleBadger/vue-date-time-picker.git"
+	}
 }
