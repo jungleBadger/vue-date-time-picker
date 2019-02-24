@@ -85,7 +85,7 @@
 		background: whitesmoke;
 		height: 50px;
 		box-shadow: 0 -2px 4px -1px gainsboro;
-		font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+		font-family: $font-stack;
 
 		div {
 			height: 100%;
@@ -152,7 +152,7 @@
 					border-radius: 4px;
 					cursor: pointer;
 					&.is-success {
-						background: lightgreen;
+						background: $success-color;
 						color: white;
 						font-weight: bold;
 					}

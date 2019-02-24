@@ -253,8 +253,8 @@
 				padding-right: 25px;
 				padding-left: 30px;
 				height: 36px;
-				border: 1px solid  #dbdbdb;
-				color: #363636;
+				border: 1px solid #dbdbdb;
+				color: $gray-font-color;
 				box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
 				max-width: 100%;
 				width: 100%;

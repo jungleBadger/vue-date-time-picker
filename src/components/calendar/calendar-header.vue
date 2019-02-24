@@ -100,7 +100,7 @@
 		background-color: $primary-color;
 		color: white;
 		box-shadow: 0px 4px 20px 3px gainsboro;
-		font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+		font-family: $font-stack;
 
 		.calendar-header-nav {
 			width: 100%;
