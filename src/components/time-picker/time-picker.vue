@@ -20,7 +20,7 @@
 			</div>
 		</div>
 		<div class="time-picker-confirm">
-			<button class="button is-danger is-outlined is-small" @click.stop="cancelSelection">Cancel</button>
+			<button class="button is-small" @click.stop="cancelSelection">Cancel</button>
 			<button class="button is-success is-small" @click.stop="confirmSelection">Confirm</button>
 		</div>
 	</div>
