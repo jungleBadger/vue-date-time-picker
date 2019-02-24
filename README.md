@@ -53,6 +53,9 @@ Next features / needing help
 * Handle events
 * Create more customisation options and enhance the ranged feature 
 * Create a more complete sample page
+* Improve accessibility 
+* Improve locale support on labels
+
 
 
 
