@@ -158,7 +158,7 @@
 				document.removeEventListener(CLICK_EVENT, this.clickMonitor);
 				this.cachedValue = "";
 				this.appear = false;
-				this.$emit("close")
+				this.$emit("close");
 			},
 			updateDate(val) {
 				this.selectedDate = val;
@@ -176,8 +176,6 @@
 						"hour": date.hour || date.getHours(),
 						"minute": date.minutes || date.getMinutes()
 					});
-				} else {
-					this.selectedDate = "";
 				}
 				this.hideDateTimePicker();
 			},

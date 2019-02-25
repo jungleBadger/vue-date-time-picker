@@ -145,12 +145,14 @@
 					margin: 0 3px;
 					height: 36px;
 					border: 1px solid  #dbdbdb;
-					color: #363636;
 					box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
 					max-width: 100%;
 					width: 100%;
 					border-radius: 4px;
 					cursor: pointer;
+					background-color: white;
+					color: $gray-font-color;
+
 					&.is-success {
 						background: $success-color;
 						color: white;
