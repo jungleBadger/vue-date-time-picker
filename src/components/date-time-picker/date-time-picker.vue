@@ -260,6 +260,7 @@
 				z-index: 999;
 				background: transparent;
 				cursor: pointer;
+				font-weight: 400;
 			}
 
 			.date-time-picker-input-icon {

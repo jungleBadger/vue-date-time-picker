@@ -241,6 +241,8 @@
 			border-radius: 50%;
 			width: 30px;
 			height: 30px;
+			max-width: 100%;
+			max-height: 100%;
 			display: flex;
 			align-items: center;
 			justify-content: center;
