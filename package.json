@@ -1,6 +1,6 @@
 {
   "name": "@jungle_d/vue-date-time-picker",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Open source vue.js component to handle date and time values\n",
   "main": "./dist/js/bundle.js",
   "scripts": {
@@ -29,6 +29,7 @@
     "cssnano": "^4.1.10",
     "dotenv": "^6.2.0",
     "envify": "^4.1.0",
+    "eslint": "^5.14.1",
     "eslint-plugin-vue": "^4.7.1",
     "fancy-log": "^1.3.2",
     "fs-extra": "^7.0.0",
