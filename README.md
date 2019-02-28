@@ -41,6 +41,7 @@ Do a regular `npm install vue-date-time-picker` and the file can be imported eit
 |referenceDate   |false   |String/Object/Date: `undefined`   |Date to be used as reference, or to define a range between two date-pickers instance   |
 |rangedPoint   |false   |String: `undefined`   |This should be used to work with ranged dates with two date pickers instance, one will be `start` and the another will be `end`   |
 |placeholder   |false   |String: `Insert date`   |Input placeholder   |
+|customTimeZone   |false   |String: `""`   |Custom Time zone string to be applied   |
 
 
 
