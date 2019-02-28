@@ -18,8 +18,7 @@
 <script type="text/javascript">
 (function () {
 	"use strict";
-	
-	const Info = require("luxon").Info;
+
 	const DateTime = require("luxon").DateTime;
 	const Interval = require("luxon").Interval;
 
@@ -90,7 +89,6 @@
 					"year": this.selectedYear - yearFactor,
 					"month": month,
 					"day": this.day,
-					"zone": Info.normalizeZone().name,
 					"hour": this.selectedDate ? (this.selectedDate.hour || 0) : 0,
 					"minute": this.selectedDate ? (this.selectedDate.minute || 0) : 0
 				});

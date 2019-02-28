@@ -75,6 +75,10 @@
 			"placeholder": {
 				"type": String,
 				"required": false
+			},
+			"customTimeZone": {
+				"type": String,
+				"required": false
 			}
 		},
 		"data": function() {
@@ -97,6 +101,7 @@
 					"month": minDate.month || minDate.getMonth() + 1,
 					"year": minDate.year || minDate.getFullYear(),
 					"hour": 0,
+					"zone": this.customTimeZone || "local",
 					"minute": 0
 				}) : "";
 			},
@@ -106,17 +111,19 @@
 					"month": this.referenceDate.month || this.referenceDate.getMonth() + 1,
 					"year": this.referenceDate.year || this.referenceDate.getFullYear(),
 					"hour": 0,
+					"zone": this.customTimeZone || "local",
 					"minute": 0
 				}) : "";
 			},
 			"selectedDateFormatted": function () {
-				return this.selectedDate ? DateTime.local(
-					this.selectedDate.year,
-					this.selectedDate.month,
-					this.selectedDate.day,
-					this.selectedDate.hour,
-					this.selectedDate.minute
-				).toLocaleString(DateTime.DATETIME_HUGE) : "";
+				return this.selectedDate ? DateTime.fromObject({
+					"year": this.selectedDate.year,
+					"month": this.selectedDate.month,
+					"day": this.selectedDate.day,
+					"hour": this.selectedDate.hour,
+					"zone": this.customTimeZone || "local",
+					"minute": this.selectedDate.minute
+				}).toLocaleString(DateTime.DATETIME_HUGE) : "";
 			},
 			"selectedHour": function () {
 				if (this.selectedDate) {
@@ -174,7 +181,8 @@
 						"month": date.month ||  date.getMonth() + 1,
 						"day": date.day || date.getDate(),
 						"hour": date.hour || date.getHours(),
-						"minute": date.minutes || date.getMinutes()
+						"zone": this.customTimeZone || "local",
+						"minute": date.minute || date.getMinutes()
 					});
 				}
 				this.hideDateTimePicker();
@@ -193,8 +201,12 @@
 					"month": date.month ||  date.getMonth() + 1,
 					"day": date.day || date.getDate(),
 					"hour": date.hour || date.getHours(),
-					"minute": date.minutes || date.getMinutes()
-				});
+					"minute": date.minute || date.getMinutes()
+				}).setZone(this.customTimeZone || "local");
+
+				if (this.customTimeZone) {
+					this.$emit("input", this.selectedDate);
+				}
 			}
 		},
 		"watch": {
@@ -274,7 +286,7 @@
 
 				svg {
 					position: relative;
-					bottom: 2px;
+					bottom: 1px;
 				}
 
 				&.is-left {

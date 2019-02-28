@@ -6,6 +6,17 @@
 				<label>
 					<date-time-picker v-model="test"></date-time-picker>
 				</label>
+				{{test}}
+			</div>
+
+		</section>
+		<section>
+			<h3>Simple date and time selector with different time-zone</h3>
+			<div class="input-wrapper">
+				<label>
+					<date-time-picker v-model="test2" :customTimeZone="'America/New_York'"></date-time-picker>
+				</label>
+				{{test2}}
 			</div>
 
 		</section>
@@ -36,6 +47,7 @@
 		"data": function() {
 			return {
 				"test": new Date(),
+				"test2": new Date(),
 				"today": new Date(),
 				"rangeStart": "",
 				"rangeEnd": ""
@@ -55,6 +67,7 @@
 			flex-wrap: wrap;
 			label {
 				margin: 7px;
+				flex: 1;
 			}
 		}
 	}
