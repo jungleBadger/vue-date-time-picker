@@ -6,7 +6,6 @@
 				<label>
 					<date-time-picker v-model="test"></date-time-picker>
 				</label>
-				{{test}}
 			</div>
 
 		</section>
@@ -16,7 +15,6 @@
 				<label>
 					<date-time-picker v-model="test2" :customTimeZone="'America/New_York'"></date-time-picker>
 				</label>
-				{{test2}}
 			</div>
 
 		</section>
