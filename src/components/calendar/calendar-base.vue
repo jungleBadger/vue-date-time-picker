@@ -33,8 +33,6 @@
 (function () {
 	"use strict";
 
-	const Info = require("luxon").Info;
-
 	module.exports = {
 		"name": "CalendarBase",
 		"components": {
@@ -106,11 +104,11 @@
 			}
 		},
 		"beforeMount": function () {
-			Info.weekdays().forEach((day, index) => {
+			require("luxon").Info.weekdays().forEach((day, index) => {
 				this.days[index] = day.charAt(0).toUpperCase() + day.slice(1);
 			});
 
-			Info.months().forEach((month, index) => {
+			require("luxon").Info.months().forEach((month, index) => {
 				this.months[index] = month.charAt(0).toUpperCase() + month.slice(1);
 			});
 		},
