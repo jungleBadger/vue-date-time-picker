@@ -38,8 +38,6 @@
 		"name": "CalendarHeader",
 		"components": {
 		},
-		"mixins": [
-		],
 		"props": {
 			"selectedMonth": {
 				"type": Number,
@@ -158,7 +156,6 @@
 				font-size: 16px;
 			}
 		}
-
 	}
 
 </style>
