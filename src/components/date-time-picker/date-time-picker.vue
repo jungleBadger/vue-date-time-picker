@@ -93,12 +93,10 @@
 				return this.placeholder || "Insert date";
 			},
 			"minDateObject": function () {
-				let minDate = new Date(this.minDate);
-
 				return this.minDate ? DateTime.fromObject({
-					"day": minDate.day || minDate.getDate(),
-					"month": minDate.month || minDate.getMonth() + 1,
-					"year": minDate.year || minDate.getFullYear(),
+					"day": this.minDate.day || this.minDate.getDate(),
+					"month": this.minDate.month || this.minDate.getMonth() + 1,
+					"year": this.minDate.year || this.minDate.getFullYear(),
 					"hour": 0,
 					"zone": this.customTimeZone || "local",
 					"minute": 0
