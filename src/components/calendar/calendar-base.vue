@@ -68,7 +68,6 @@
 			return {
 				"selectedMonth": new Date().getMonth(),
 				"selectedYear": new Date().getFullYear(),
-				"currentTimezoneOffset": new Date().getTimezoneOffset(),
 				"days": {},
 				"months": {}
 			}
@@ -135,7 +134,6 @@
 }());
 </script>
 <style scoped lang="scss" rel="stylesheet/scss">
-
 	.calendar {
 		display: flex;
 		height: 100%;
@@ -163,9 +161,6 @@
 				justify-content: center;
 				align-items: center;
 			}
-
 		}
-
 	}
-
 </style>
