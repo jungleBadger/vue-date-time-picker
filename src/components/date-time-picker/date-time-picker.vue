@@ -49,7 +49,7 @@
 				"type": String,
 				"required": false,
 				"default": function () {
-					return "a" + Date.now();
+					return `a${Date.now()}`;
 				}
 			},
 			"value": {
@@ -119,19 +119,11 @@
 				}).toLocaleString(DateTime.DATETIME_HUGE) : "";
 			},
 			"selectedHour": function () {
-				if (this.selectedDate) {
-					return this.selectedDate.hour;
-				} else {
-					return 0;
-				}
+				return this.selectedDate ? this.selectedDate.hour : 0;
 			},
 			"selectedMinute": function () {
-				if (this.selectedDate) {
-					return this.selectedDate.minute;
-				} else {
-					return 0;
-				}
-			},
+				return this.selectedDate ? this.selectedDate.minute : 0;
+			}
 		},
 		"methods": {
 			clickMonitor(ev) {
