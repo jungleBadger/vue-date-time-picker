@@ -44,10 +44,6 @@
 			"CalendarBase": require("../calendar/calendar-base.vue"),
 			"TimePicker": require("../time-picker/time-picker.vue")
 		},
-		"mixins": [
-		],
-		"directives": {
-		},
 		"props": {
 			"elId": {
 				"type": String,
@@ -139,12 +135,9 @@
 		},
 		"methods": {
 			clickMonitor(ev) {
-				var composed = ev.composedPath();
-				let x = composed.find(element => {
+				if (!(ev.path || ev.composedPath()).find(element => {
 					return element.parentElement && element.parentElement.id === this.elId;
-				});
-
-				if (!x) {
+				})) {
 					if (this.minDateObject >= this.selectedDate) {
 						this.cancelSelection();
 					} else {
