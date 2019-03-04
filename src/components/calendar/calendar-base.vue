@@ -41,8 +41,6 @@
 			"CalendarHeader": require("./calendar-header.vue"),
 			"CalendarDateSmall": require("./calendar-date-small.vue")
 		},
-		"mixins": [
-		],
 		"props": {
 			"selectedDate": {
 				"type": [String, Object],
