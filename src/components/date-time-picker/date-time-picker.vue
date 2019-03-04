@@ -85,7 +85,6 @@
 			return {
 				"appear": false,
 				"selectedDate": "",
-				"selectedTime": "",
 				"cachedValue": ""
 			}
 		},
