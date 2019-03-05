@@ -2,21 +2,25 @@
 	<div class="time-picker">
 		<div class="time-picker-times">
 			<div class="field __is_hour">
-				<select class="select" v-model="_hour" @change="timeSelected">
-					<option v-for="(hour, index) in hours" :key="hour" :value="index" v-once>
-						{{index >= 10 ? index : `0${index}`}} h
-					</option>
-				</select>
+				<label>
+					<select class="select" v-model="_hour" @change="timeSelected">
+						<option v-for="(hour, index) in hours" :key="hour" :value="index" v-once>
+							{{index >= 10 ? index : `0${index}`}} h
+						</option>
+					</select>
+				</label>
 			</div>
 			<span class="hour-separator">
 				<span class="icon">:</span>
 			</span>
 			<div class="field __is_minute">
-				<select class="select" v-model="_minute" @change="timeSelected">
-					<option v-for="(minute, index) in minutes" :key="minute" :value="index" v-once>
-						{{index >= 10 ? index : `0${index}`}} m
-					</option>
-				</select>
+				<label>
+					<select class="select" v-model="_minute" @change="timeSelected">
+						<option v-for="(minute, index) in minutes" :key="minute" :value="index" v-once>
+							{{index >= 10 ? index : `0${index}`}} m
+						</option>
+					</select>
+				</label>
 			</div>
 		</div>
 		<div class="time-picker-confirm">
@@ -30,8 +34,6 @@
 	"use strict";
 	module.exports = {
 		"name": "TimePicker",
-		"components": {
-		},
 		"props": {
 			"selectedHour": {
 				"type": Number,
@@ -50,14 +52,12 @@
 				"_minute": 0
 			}
 		},
-		"computed": {
-		},
 		"methods": {
 			timeSelected() {
 				this.$emit("timeSelected", {
 					"hour": this._hour,
 					"minute": this._minute
-				})
+				});
 			},
 			cancelSelection() {
 				this.$emit("cancelSelection");
