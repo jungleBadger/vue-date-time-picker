@@ -105,6 +105,7 @@
 			.pipe(eslint.failAfterError());
 	});
 
+
 	gulp.task("js", function (done) {
 		browserifyInstance = browserify({
 			"entries": "./src/js/main.js",
@@ -172,6 +173,9 @@
 
 		return methods.bundleSamples(done);
 	});
+
+	gulp.task("build-all", gulp.series("build", "build-samples"));
+
 
 	process.on("exit", function (code) {
 		log("About to exit with code:", code);
