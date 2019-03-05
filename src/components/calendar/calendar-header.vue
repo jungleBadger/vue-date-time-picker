@@ -34,8 +34,6 @@
 
 	module.exports = {
 		"name": "CalendarHeader",
-		"components": {
-		},
 		"props": {
 			"selectedMonth": {
 				"type": Number,

@@ -24,8 +24,6 @@
 
 	module.exports = {
 		"name": "CalendarDateSmall",
-		"components": {
-		},
 		"props": {
 			"day": {
 				"type": Number,
@@ -141,7 +139,6 @@
 							&& (interval.end.month === this.contextDate.month) &&
 							(interval.end.year === this.contextDate.year)
 					};
-
 				} else {
 					return {};
 				}

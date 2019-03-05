@@ -175,7 +175,6 @@
 			}
 		},
 		"mounted": function () {
-
 			if (this.value && !this.selectedDate) {
 				let date = new Date(this.value);
 				this.selectedDate = DateTime.fromObject({
