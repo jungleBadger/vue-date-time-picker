@@ -162,13 +162,15 @@
 	.calendar-date {
 		max-width: 100%;
 		max-height: 100%;
+		width: 40px;
+		height: 40px;
 		text-align: center;
 		cursor: pointer;
 		padding: 7px;
 		transition: background-color 0.2s;
 		position: relative;
 		font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
-
+		box-sizing: border-box;
 
 		&.__is-selected {
 			background-color: #295C99;
@@ -233,9 +235,8 @@
 		}
 
 		.calendar-date-value {
-			border-radius: 50%;
-			width: 30px;
-			height: 30px;
+			width: 100%;
+			height: 100%;
 			max-width: 100%;
 			max-height: 100%;
 			display: flex;

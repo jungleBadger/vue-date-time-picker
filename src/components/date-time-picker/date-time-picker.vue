@@ -89,20 +89,22 @@
 				return this.placeholder || "Insert date";
 			},
 			"minDateObject": function () {
-				return this.minDate ? DateTime.fromObject({
-					"day": this.minDate.day || this.minDate.getDate(),
-					"month": this.minDate.month || this.minDate.getMonth() + 1,
-					"year": this.minDate.year || this.minDate.getFullYear(),
+				let contextDate = typeof this.minDate === "string" ? new Date(this.minDate) : this.minDate;
+				return contextDate ? DateTime.fromObject({
+					"day": contextDate.day || contextDate.getDate(),
+					"month": contextDate.month || contextDate.getMonth() + 1,
+					"year": contextDate.year || contextDate.getFullYear(),
 					"hour": 0,
 					"zone": this.customTimeZone || "local",
 					"minute": 0
 				}) : "";
 			},
 			"referenceDateObject": function () {
-				return this.referenceDate ? DateTime.fromObject({
-					"day": this.referenceDate.day || this.referenceDate.getDate(),
-					"month": this.referenceDate.month || this.referenceDate.getMonth() + 1,
-					"year": this.referenceDate.year || this.referenceDate.getFullYear(),
+				let contextDate = typeof this.referenceDate === "string" ? new Date(this.referenceDate) : this.referenceDate;
+				return contextDate ? DateTime.fromObject({
+					"day": contextDate.day || contextDate.getDate(),
+					"month": contextDate.month || contextDate.getMonth() + 1,
+					"year": contextDate.year || contextDate.getFullYear(),
 					"hour": 0,
 					"zone": this.customTimeZone || "local",
 					"minute": 0
@@ -221,8 +223,9 @@
 
 	.date-time-picker-wrapper {
 		position: relative;
-		min-width: 315px;
+		min-width: 280px;
 		max-width: 100%;
+		box-sizing: border-box;
 		.control {
 			.input {
 				cursor: pointer;
@@ -285,7 +288,7 @@
 			right: 3px;
 			z-index: 9999;
 			background-color: white;
-			min-width: 300px;
+			min-width: 280px;
 			border-radius: 7px;
 			box-shadow: 0px 1px 7px -2px $primary-color;
 			user-select: none;
