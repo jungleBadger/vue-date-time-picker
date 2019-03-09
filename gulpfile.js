@@ -7,6 +7,7 @@
 	const packageJson = require("./package.json");
 	const argv = require("yargs").argv;
 	const browserify = require("browserify");
+	const commonShake = require("common-shakeify");
 	const cond = require("gulp-cond");
 	const fs = require("fs");
 	const fse = require("fs-extra");
@@ -107,21 +108,23 @@
 
 
 	gulp.task("js", function (done) {
+		let plugins = isProd ? [commonShake] : [];
+
 		browserifyInstance = browserify({
 			"entries": "./src/js/main.js",
 			"noParse": ["vue.js"],
-			"plugin": argv.w || argv.watch ? [watchify] : [],
+			"plugin": argv.w || argv.watch ? plugins.concat([watchify]) : plugins,
 			"cache": {},
 			"packageCache": {},
 			"debug": !isProd,
 			"standalone": "VueDateTimePicker",
 			"detectGlobals": true,
-			"insertGlobalVars": true
+			"insertGlobalVars": false
 		}).transform("envify", {
 			"global": true,
 			"NODE_ENV": process.env.NODE_ENV,
-			"transform": [["babelify", { "presets": ["@babel/preset-env"] }]]
 		})
+			.transform(babelify)
 			.transform(vueify)
 			.on("update", function () {
 				methods.bundleJS(done);
@@ -154,18 +157,21 @@
 
 	gulp.task("build-samples", function (done) {
 		let modulePath = "samples";
+
+		let plugins = isProd ? [commonShake] : [];
+
 		browserifyInstance = browserify({
 			"entries": modulePath + "/js/main.js",
 			"noParse": ["vue.js"],
-			"plugin": argv.w || argv.watch ? [watchify] : [],
+			"plugin": argv.w || argv.watch ? plugins.concat([watchify]) : plugins,
 			"cache": {},
 			"packageCache": {},
 			"debug": !isProd
 		}).transform("envify", {
 			"global": true,
 			"NODE_ENV": process.env.NODE_ENV,
-			"transform": [["babelify", { "presets": ["@babel/preset-env"] }]]
 		})
+			.transform(babelify)
 			.transform(vueify)
 			.on("update", function () {
 				methods.bundleJS(done);
