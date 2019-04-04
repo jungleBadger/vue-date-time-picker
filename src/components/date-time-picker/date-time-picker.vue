@@ -197,6 +197,7 @@
 				if (this.selectedDate < this.minDateObject) {
 					this.selectedDate = "";
 					this.cachedValue = "";
+					this.$emit("input", "");
 				}
 			}
 		}
