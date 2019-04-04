@@ -27,7 +27,6 @@
 				</label>
 				<label>
 					<date-time-picker v-model="rangeEnd" :minDate="rangeStart" :referenceDate="rangeStart" :rangedPoint="'end'"></date-time-picker>
-
 				</label>
 			</div>
 
