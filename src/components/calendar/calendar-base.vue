@@ -85,7 +85,7 @@
 				return 32 - new Date(this.selectedYear, this.selectedMonth, 32).getDate();
 			},
 			"firstDayOfTheMonth": function () {
-				return new Date(this.selectedYear, this.selectedMonth).getDay();
+				return new Date(this.selectedYear, this.selectedMonth).getDay() - 1;
 			},
 			"lastDayPreviousMonth": function () {
 				return new Date(new Date(this.selectedYear, this.selectedMonth).getTime() - (1000 * 60 * 60 * 23)).getDate();
