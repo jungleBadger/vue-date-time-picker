@@ -96,7 +96,8 @@
 					"year": contextDate.year || contextDate.getFullYear(),
 					"hour": 0,
 					"zone": this.customTimeZone || "local",
-					"minute": 0
+					"minute": 0,
+					"second": 0
 				}) : "";
 			},
 			"referenceDateObject": function () {
@@ -107,7 +108,8 @@
 					"year": contextDate.year || contextDate.getFullYear(),
 					"hour": 0,
 					"zone": this.customTimeZone || "local",
-					"minute": 0
+					"minute": 0,
+					"second": 0
 				}) : "";
 			},
 			"selectedDateFormatted": function () {
@@ -117,7 +119,8 @@
 					"day": this.selectedDate.day,
 					"hour": this.selectedDate.hour,
 					"zone": this.customTimeZone || "local",
-					"minute": this.selectedDate.minute
+					"minute": this.selectedDate.minute,
+					"second": 0
 				}).toLocaleString(DateTime.DATETIME_HUGE) : "";
 			},
 			"selectedHour": function () {
@@ -165,7 +168,8 @@
 						"day": date.day || date.getDate(),
 						"hour": date.hour || date.getHours(),
 						"zone": this.customTimeZone || "local",
-						"minute": date.minute || date.getMinutes()
+						"minute": date.minute || date.getMinutes(),
+						"second": 0
 					});
 				}
 				this.hideDateTimePicker();
@@ -177,7 +181,8 @@
 					"day": this.selectedDate.day,
 					"hour": this.selectedDate.hour,
 					"zone": this.customTimeZone || "local",
-					"minute": this.selectedDate.minute
+					"minute": this.selectedDate.minute,
+					"second": 0
 				}));
 				this.hideDateTimePicker();
 			}
@@ -190,7 +195,8 @@
 					"month": date.month ||  date.getMonth() + 1,
 					"day": date.day || date.getDate(),
 					"hour": date.hour || date.getHours(),
-					"minute": date.minute || date.getMinutes()
+					"minute": date.minute || date.getMinutes(),
+					"second": 0
 				}).setZone(this.customTimeZone || "local");
 
 				if (this.customTimeZone) {
