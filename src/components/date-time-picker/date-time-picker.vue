@@ -135,8 +135,7 @@
 					if (this.minDateObject >= this.selectedDate) {
 						this.cancelSelection();
 					} else {
-						this.$emit("input", this.selectedDate);
-						this.hideDateTimePicker();
+						this.confirmSelection();
 					}
 				}
 			},
@@ -172,7 +171,14 @@
 				this.hideDateTimePicker();
 			},
 			confirmSelection() {
-				this.$emit("input", this.selectedDate);
+				this.$emit("input", DateTime.fromObject({
+					"year": this.selectedDate.year,
+					"month": this.selectedDate.month,
+					"day": this.selectedDate.day,
+					"hour": this.selectedDate.hour,
+					"zone": this.customTimeZone || "local",
+					"minute": this.selectedDate.minute
+				}));
 				this.hideDateTimePicker();
 			}
 		},
