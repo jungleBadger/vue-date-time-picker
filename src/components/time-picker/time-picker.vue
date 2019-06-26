@@ -24,7 +24,6 @@
 			</div>
 		</div>
 		<div class="time-picker-confirm">
-			<button class="button is-small" @click.stop="cancelSelection">Cancel</button>
 			<button class="button is-success is-small" @click.stop="confirmSelection">Confirm</button>
 		</div>
 	</div>
@@ -84,7 +83,6 @@
 		padding: 7px;
 		background: whitesmoke;
 		height: 50px;
-		box-shadow: 0 -2px 4px -1px gainsboro;
 		font-family: $font-stack;
 
 		div {
@@ -110,7 +108,6 @@
 						height: 36px;
 						border: 1px solid  #dbdbdb;
 						color: #363636;
-						box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
 						max-width: 100%;
 						width: 100%;
 						border-radius: 4px;
@@ -132,7 +129,7 @@
 					justify-content: center;
 					font-size: 18px;
 					font-weight: bold;
-					width: 21px;
+					width: 12px;
 				}
 
 			}
@@ -142,21 +139,21 @@
 				align-items: center;
 				justify-content: center;
 				.button {
-					margin: 0 3px;
 					height: 36px;
-					border: 1px solid  #dbdbdb;
-					box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
 					max-width: 100%;
 					width: 100%;
 					border-radius: 4px;
 					cursor: pointer;
 					background-color: white;
-					color: $gray-font-color;
+					box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+					font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
 
 					&.is-success {
 						background: $success-color;
+						font-weight: 400;
 						color: white;
-						font-weight: bold;
+						text-transform: uppercase;
+						letter-spacing: 1px;
 					}
 				}
 			}

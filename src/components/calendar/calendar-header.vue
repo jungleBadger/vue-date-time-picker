@@ -91,9 +91,9 @@
 		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
-		background-color: $primary-color;
+		background-color: hsla(212, 100%, 75%, 1);
 		color: white;
-		box-shadow: 0px 4px 20px 3px gainsboro;
+		box-shadow: 0px 0px 4px 0px #b9b9b9;
 		font-family: $font-stack;
 
 		.calendar-header-nav {
@@ -102,7 +102,8 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			padding: 0 11px;
+			padding-left: 7px;
+			padding-right: 8px;
 
 			svg:not(:root).svg-inline--fa {
 				overflow: visible;

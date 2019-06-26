@@ -174,7 +174,7 @@
 			.transform(babelify)
 			.transform(vueify)
 			.on("update", function () {
-				methods.bundleJS(done);
+				methods.bundleSamples(done);
 			});
 
 		return methods.bundleSamples(done);

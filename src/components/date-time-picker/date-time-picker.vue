@@ -89,7 +89,7 @@
 				return this.placeholder || "Insert date";
 			},
 			"minDateObject": function () {
-				let contextDate = typeof this.minDate === "string" ? new Date(this.minDate) : this.minDate;
+				let contextDate = this.minDate && typeof this.minDate === "string" ? new Date(this.minDate) : this.minDate;
 				return contextDate ? DateTime.fromObject({
 					"day": contextDate.day || contextDate.getDate(),
 					"month": contextDate.month || contextDate.getMonth() + 1,
@@ -101,7 +101,7 @@
 				}) : "";
 			},
 			"referenceDateObject": function () {
-				let contextDate = typeof this.referenceDate === "string" ? new Date(this.referenceDate) : this.referenceDate;
+				let contextDate = this.referenceDate && typeof this.referenceDate === "string" ? new Date(this.referenceDate) : this.referenceDate;
 				return contextDate ? DateTime.fromObject({
 					"day": contextDate.day || contextDate.getDate(),
 					"month": contextDate.month || contextDate.getMonth() + 1,
@@ -161,16 +161,21 @@
 			},
 			cancelSelection() {
 				if (this.cachedValue) {
-					let date = new Date(this.cachedValue);
-					this.selectedDate = DateTime.fromObject({
-						"year": date.year || date.getFullYear(),
-						"month": date.month ||  date.getMonth() + 1,
-						"day": date.day || date.getDate(),
-						"hour": date.hour || date.getHours(),
-						"zone": this.customTimeZone || "local",
-						"minute": date.minute || date.getMinutes(),
-						"second": 0
-					});
+					try {
+						let date = new Date(this.cachedValue);
+						this.selectedDate = DateTime.fromObject({
+							"year": date.year || date.getFullYear(),
+							"month": date.month ||  date.getMonth() + 1,
+							"day": date.day || date.getDate(),
+							"hour": date.hour || date.getHours(),
+							"zone": this.customTimeZone || "local",
+							"minute": date.minute || date.getMinutes(),
+							"second": 0
+						});
+					} catch (e) {
+						console.log(e);
+					}
+
 				}
 				this.hideDateTimePicker();
 			},
@@ -205,13 +210,7 @@
 			}
 		},
 		"watch": {
-			"minDateObject": function () {
-				if (this.selectedDate < this.minDateObject) {
-					this.selectedDate = "";
-					this.cachedValue = "";
-					this.$emit("input", "");
-				}
-			}
+
 		}
 	};
 }());
@@ -262,7 +261,6 @@
 				height: 36px;
 				border: 1px solid #dbdbdb;
 				color: $gray-font-color;
-				box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
 				max-width: 100%;
 				width: 100%;
 				border-radius: 4px;
@@ -303,7 +301,7 @@
 			background-color: white;
 			min-width: 280px;
 			border-radius: 7px;
-			box-shadow: 0px 1px 7px -2px $primary-color;
+			box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, .2);
 			user-select: none;
 		}
 	}

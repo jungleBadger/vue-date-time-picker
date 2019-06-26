@@ -10,8 +10,8 @@
 		}"
 		class="calendar-date"
 		@click.stop="updateDate">
-		<span class="calendar-date-value">
-			{{day}}
+		<span class="calendar-date-value" v-once>
+			{{day > 9 ? day : `0${day}`}}
 		</span>
 	</div>
 </template>
@@ -107,7 +107,11 @@
 				);
 			},
 			"isInactive": function () {
-				return this.contextDate < this.minDate;
+				return (
+					this.contextDate.day < this.minDate.day &&
+					this.contextDate.month <= this.minDate.month &&
+					this.contextDate.year <= this.minDate.year
+				);
 			},
 			"isReferenceDate": function () {
 				return this.referenceDate && (
@@ -183,10 +187,12 @@
 		&.__is-today {
 			.calendar-date-value {
 				&::after {
-					content: "Today";
+					content: "";
 					font-size: 8px;
 					position: absolute;
 					bottom: 5px;
+					border: 1px solid #5596e6;
+					width: 60%;
 				}
 			}
 		}
@@ -242,6 +248,8 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			font-family: 'IBM Plex Mono', monospace;
+			font-weight: 300;
 		}
 
 	}

@@ -1,6 +1,6 @@
 {
   "name": "@jungle_d/vue-date-time-picker",
-  "version": "1.0.12",
+  "version": "1.1.0",
   "description": "Open source vue.js component to handle date and time values\n",
   "main": "./dist/js/bundle.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "animate-sass": "^0.8.2",
     "ansi-colors": "^3.2.4",
     "babel-eslint": "^9.0.0",
-    "babel-plugin-dynamic-import-node": "^2.1.0",
+    "babel-plugin-dynamic-import-node": "^2.3.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babelify": "^10.0.0",
@@ -61,7 +61,7 @@
     "node-waves": "^0.7.6",
     "nyc": "^13.3.0",
     "postcss-cssnext": "^3.1.0",
-    "promise-polyfill": "^8.1.0",
+    "promise-polyfill": "^8.1.3",
     "replace": "^1.1.0",
     "run-sequence": "^2.2.1",
     "sw-precache": "^5.2.1",
