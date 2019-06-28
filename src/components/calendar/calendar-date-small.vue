@@ -107,7 +107,7 @@
 				);
 			},
 			"isInactive": function () {
-				return (
+				return this.minDate && (
 					this.contextDate.day < this.minDate.day &&
 					this.contextDate.month <= this.minDate.month &&
 					this.contextDate.year <= this.minDate.year

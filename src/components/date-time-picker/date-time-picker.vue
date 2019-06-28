@@ -96,15 +96,19 @@
 			},
 			"minDateObject": function () {
 				let contextDate = this.minDate && typeof this.minDate === "string" ? new Date(this.minDate) : this.minDate;
-				return contextDate ? DateTime.fromObject({
-					"day": contextDate.day || contextDate.getDate(),
-					"month": contextDate.month || contextDate.getMonth() + 1,
-					"year": contextDate.year || contextDate.getFullYear(),
-					"hour": 0,
-					"zone": this.customTimeZone || "local",
-					"minute": 0,
-					"second": 0
-				}) : "";
+				try {
+					return contextDate ? DateTime.fromObject({
+						"day": contextDate.day || contextDate.getDate(),
+						"month": contextDate.month || contextDate.getMonth() + 1,
+						"year": contextDate.year || contextDate.getFullYear(),
+						"hour": 0,
+						"zone": this.customTimeZone || "local",
+						"minute": 0,
+						"second": 0
+					}) : "";
+				} catch (e) {
+					return "";
+				}
 			},
 			"referenceDateObject": function () {
 				let contextDate = this.referenceDate && typeof this.referenceDate === "string" ? new Date(this.referenceDate) : this.referenceDate;
