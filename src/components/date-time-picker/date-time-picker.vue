@@ -95,8 +95,8 @@
 				return this.placeholder || "Insert date";
 			},
 			"minDateObject": function () {
-				let contextDate = this.minDate && typeof this.minDate === "string" ? new Date(this.minDate) : this.minDate;
 				try {
+					let contextDate = this.minDate && typeof this.minDate === "string" ? new Date(this.minDate) : this.minDate;
 					return contextDate ? DateTime.fromObject({
 						"day": contextDate.day || contextDate.getDate(),
 						"month": contextDate.month || contextDate.getMonth() + 1,
@@ -309,13 +309,24 @@
 		.date-time-picker-clear-button {
 			position: absolute;
 			top: 0;
-			height: 100%;
-			border: 0;
 			cursor: pointer;
-			font-size: 16px;
 			right: -6px;
 			width: 30px;
 			color: $gray-font-color;
+			justify-content: center;
+			padding-bottom: calc(0.375em - 1px);
+			padding-left: 0.75em;
+			padding-right: 0.75em;
+			padding-top: calc(0.375em - 1px);
+			text-align: center;
+			white-space: nowrap;
+			align-items: center;
+			border: 1px solid transparent;
+			border-radius: 4px;
+			box-shadow: none;
+			display: inline-flex;
+			font-size: 1rem;
+			height: 2.25em;
 
 			&.__is-disabled {
 				opacity: 0.2;
