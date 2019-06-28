@@ -12,7 +12,7 @@
 			</span>
 
 		</div>
-		<button class="button date-time-picker-clear-button" :disabled="!selectedDateFormatted" :class="{'__is-disabled': !selectedDateFormatted}" @click="cleanInput">
+		<button class="button is-danger is-inverted date-time-picker-clear-button" :disabled="!selectedDateFormatted" :class="{'__is-disabled': !selectedDateFormatted}" @click="cleanInput">
 			<span class="icon">
 				<svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-times fa-w-10"><path data-v-64869e31="" fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" class=""></path></svg>
 			</span>
@@ -262,7 +262,7 @@
 			min-height: 36px;
 			box-sizing: border-box;
 			background-color: #fff;
-			width: calc(100% - 30px);
+			width: calc(100% - 36px);
 
 			.date-time-picker-input {
 				flex: 1;
@@ -311,7 +311,6 @@
 			top: 0;
 			cursor: pointer;
 			right: -6px;
-			width: 30px;
 			color: $gray-font-color;
 			justify-content: center;
 			padding-bottom: calc(0.375em - 1px);
@@ -337,7 +336,7 @@
 
 		.date-time-picker-popup {
 			position: absolute;
-			right: 30px;
+			right: 36px;
 			z-index: 9999;
 			background-color: white;
 			min-width: 280px;
