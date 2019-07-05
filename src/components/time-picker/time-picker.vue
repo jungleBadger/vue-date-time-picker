@@ -80,7 +80,7 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
-		padding: 7px;
+		padding: 12px;
 		background: whitesmoke;
 		height: 50px;
 		font-family: $font-stack;
@@ -147,6 +147,7 @@
 					background-color: white;
 					box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
 					font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+					border: 0;
 
 					&.is-success {
 						background: $success-color;

@@ -249,6 +249,10 @@
 		min-width: 280px;
 		max-width: 100%;
 		box-sizing: border-box;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
 		.control {
 			.input {
 				cursor: pointer;
@@ -262,7 +266,7 @@
 			min-height: 36px;
 			box-sizing: border-box;
 			background-color: #fff;
-			width: calc(100% - 36px);
+			width: calc(100% - 45px);
 
 			.date-time-picker-input {
 				flex: 1;
@@ -280,6 +284,8 @@
 				background: transparent;
 				cursor: pointer;
 				font-weight: 400;
+				box-sizing: border-box;
+
 			}
 
 			.date-time-picker-input-icon {
@@ -307,10 +313,7 @@
 		}
 
 		.date-time-picker-clear-button {
-			position: absolute;
-			top: 0;
 			cursor: pointer;
-			right: -6px;
 			color: $gray-font-color;
 			justify-content: center;
 			padding-bottom: calc(0.375em - 1px);
@@ -322,21 +325,30 @@
 			align-items: center;
 			border: 1px solid transparent;
 			border-radius: 4px;
-			box-shadow: none;
 			display: inline-flex;
 			font-size: 1rem;
 			height: 2.25em;
+			background-color: #ffffff;
+			box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+			margin-left: 3px;
+
+			&:hover {
+				background-color: #f2f2f2;
+			}
 
 			&.__is-disabled {
 				opacity: 0.2;
 				cursor: not-allowed;
 				outline: none;
+				background-color: #ffffff;
+
 			}
 		}
 
 		.date-time-picker-popup {
 			position: absolute;
-			right: 36px;
+			right: 45px;
+			top: 100%;
 			z-index: 9999;
 			background-color: white;
 			min-width: 280px;
