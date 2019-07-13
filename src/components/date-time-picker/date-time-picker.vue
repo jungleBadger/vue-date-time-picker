@@ -170,8 +170,16 @@
 				this.selectedDate = this.selectedDate.set(val);
 			},
 			cleanInput() {
-				this.selectedDate = "";
-				this.$emit("input", "");
+				if (this.rangedPoint === "start") {
+					this.selectedDate = DateTime.fromObject(this.minDateObject);
+
+					this.$emit("input", this.selectedDate);
+				} else {
+					this.selectedDate = "";
+					this.$emit("input", "");
+				}
+
+				this.showDateTimePicker();
 			},
 			cancelSelection() {
 				if (this.cachedValue) {
