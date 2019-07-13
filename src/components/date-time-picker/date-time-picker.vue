@@ -222,6 +222,16 @@
 					this.$emit("input", this.selectedDate);
 				}
 			}
+		},
+		"watch": {
+			"minDate": function () {
+				if (this.selectedDate && this.minDateObject) {
+					if (this.selectedDate.ts <= this.minDateObject.ts) {
+						this.cleanInput();
+						this.showDateTimePicker();
+					}
+				}
+			}
 		}
 	};
 }());
