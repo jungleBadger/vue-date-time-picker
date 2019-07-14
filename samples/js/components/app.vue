@@ -22,7 +22,7 @@
 			<h3>Two inputs connected with start and end date</h3>
 			<div class="input-wrapper">
 				<label>
-					<date-time-picker v-model="rangeStart" :minDate="today" rangedPoint="'start'"></date-time-picker>
+					<date-time-picker v-model="rangeStart" :minDate="today" :rangedPoint="'start'"></date-time-picker>
 
 				</label>
 				<label>
