@@ -284,7 +284,9 @@
 			min-height: 36px;
 			box-sizing: border-box;
 			background-color: #fff;
-			width: calc(100% - 45px);
+			flex: 1;
+			max-width: 100%;
+			min-width: 80%;
 
 			.date-time-picker-input {
 				flex: 1;
@@ -344,11 +346,11 @@
 			border: 1px solid transparent;
 			border-radius: 4px;
 			display: inline-flex;
-			font-size: 1rem;
-			height: 2.25em;
+			font-size: 0.75rem;
+			height: 100%;
 			background-color: #ffffff;
-			box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
-			margin-left: 3px;
+			box-shadow: unset !important;
+			margin-left: 12px;
 
 			&:hover {
 				background-color: #f2f2f2;
