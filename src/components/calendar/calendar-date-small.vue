@@ -166,7 +166,8 @@
 	.calendar-date {
 		max-width: 100%;
 		max-height: 100%;
-		width: 40px;
+		width: 100%;
+		min-width: 40px;
 		height: 40px;
 		text-align: center;
 		cursor: pointer;

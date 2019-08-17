@@ -264,7 +264,7 @@
 
 	.date-time-picker-wrapper {
 		position: relative;
-		min-width: 280px;
+		min-width: 320px;
 		max-width: 100%;
 		box-sizing: border-box;
 		display: flex;
@@ -367,11 +367,11 @@
 
 		.date-time-picker-popup {
 			position: absolute;
-			right: 45px;
+			right: 39px;
 			top: 100%;
 			z-index: 9999;
 			background-color: white;
-			min-width: 280px;
+			min-width: 320px;
 			border-radius: 7px;
 			box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, .2);
 			user-select: none;
