@@ -25,7 +25,7 @@
 				:selectedDate="selectedDate"
 				@dateSelected="updateDate">
 			</calendar-base>
-			<template v-if="selectedDate">
+			<template v-if="showTimePicker && selectedDate">
 				<time-picker
 					:selectedHour="selectedHour"
 					:selectedMinute="selectedMinute"
@@ -81,6 +81,13 @@
 			"customTimeZone": {
 				"type": String,
 				"required": false
+			},
+			"showTimePicker": {
+				"type": Boolean,
+				"required": false,
+				"default": function () {
+					return true;
+				}
 			}
 		},
 		"data": function() {
