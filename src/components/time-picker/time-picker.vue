@@ -83,7 +83,8 @@
 	.time-picker {
 		display: flex;
 		flex-direction: row;
-		justify-content: center;
+		justify-content: flex-end;
+		align-items: center;
 		padding: 12px;
 		background: whitesmoke;
 		height: 50px;
