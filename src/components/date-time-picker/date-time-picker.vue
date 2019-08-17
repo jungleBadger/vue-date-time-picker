@@ -25,8 +25,9 @@
 				:selectedDate="selectedDate"
 				@dateSelected="updateDate">
 			</calendar-base>
-			<template v-if="showTimePicker && selectedDate">
+			<template v-if="selectedDate">
 				<time-picker
+					:showTimePicker="showTimePicker"
 					:selectedHour="selectedHour"
 					:selectedMinute="selectedMinute"
 					@confirmSelection="confirmSelection"

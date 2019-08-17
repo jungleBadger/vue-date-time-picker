@@ -1,6 +1,6 @@
 <template>
 	<div class="time-picker">
-		<div class="time-picker-times">
+		<div class="time-picker-times" v-if="showTimePicker">
 			<div class="field __is_hour">
 				<label>
 					<select class="select" v-model="_hour" @change="timeSelected">
@@ -40,6 +40,10 @@
 			},
 			"selectedMinute": {
 				"type": Number,
+				"required": true
+			},
+			"showTimePicker": {
+				"type": Boolean,
 				"required": true
 			}
 		},
