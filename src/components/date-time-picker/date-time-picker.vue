@@ -119,8 +119,8 @@
 				}
 			},
 			"referenceDateObject": function () {
-				let contextDate = this.referenceDate && typeof this.referenceDate === "string" ? new Date(this.referenceDate) : this.referenceDate;
-				return contextDate ? DateTime.fromObject({
+				let contextDate = typeof this.referenceDate === "string" ? new Date(this.referenceDate) : this.referenceDate;
+				return this.referenceDate && contextDate ? DateTime.fromObject({
 					"day": contextDate.day || contextDate.getDate(),
 					"month": contextDate.month || contextDate.getMonth() + 1,
 					"year": contextDate.year || contextDate.getFullYear(),
