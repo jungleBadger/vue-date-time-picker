@@ -119,16 +119,30 @@
 				}
 			},
 			"referenceDateObject": function () {
-				let contextDate = typeof this.referenceDate === "string" ? new Date(this.referenceDate) : this.referenceDate;
-				return this.referenceDate && contextDate ? DateTime.fromObject({
-					"day": contextDate.day || contextDate.getDate(),
-					"month": contextDate.month || contextDate.getMonth() + 1,
-					"year": contextDate.year || contextDate.getFullYear(),
-					"hour": 0,
-					"zone": this.customTimeZone || "local",
-					"minute": 0,
-					"second": 0
-				}) : "";
+				try {
+					let contextDate = typeof this.referenceDate === "string" ? new Date(this.referenceDate) : this.referenceDate;
+					console.log({
+						"day": contextDate.day || contextDate.getDate(),
+						"month": contextDate.month || contextDate.getMonth() + 1,
+						"year": contextDate.year || contextDate.getFullYear(),
+						"hour": 0,
+						"zone": this.customTimeZone || "local",
+						"minute": 0,
+						"second": 0
+					});
+					return this.referenceDate && contextDate ? DateTime.fromObject({
+						"day": contextDate.day || contextDate.getDate(),
+						"month": contextDate.month || contextDate.getMonth() + 1,
+						"year": contextDate.year || contextDate.getFullYear(),
+						"hour": 0,
+						"zone": this.customTimeZone || "local",
+						"minute": 0,
+						"second": 0
+					}) : "";
+				} catch (e) {
+					console.log(e);
+				}
+
 			},
 			"selectedDateFormatted": function () {
 				return this.selectedDate ? DateTime.fromObject({
