@@ -8,7 +8,10 @@
 		'__is-interval-start': intervalInfo.isIntervalStart || (isReferenceDate && rangedPoint === 'end'),
 		'__is-interval-end': intervalInfo.isIntervalEnd
 		}"
+		tabindex="0"
 		class="calendar-date"
+		:aria-label="contextDate.toString()"
+		@keyup.space.stop="updateDate"
 		@click.stop="updateDate">
 		<span class="calendar-date-value" v-once>
 			{{day > 9 ? day : `0${day}`}}
