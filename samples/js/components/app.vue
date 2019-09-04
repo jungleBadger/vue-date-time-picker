@@ -36,10 +36,11 @@
 <script type="text/javascript">
 (function () {
 	"use strict";
+	console.log(require("../../../dist/js/bundle").DateTimePicker)
 	module.exports = {
 		"name": "App",
 		"components": {
-			"DateTimePicker": require("../../../dist/js/bundle").DateTimePicker
+			// "DateTimePicker": require("../../../dist/js/bundle.js").DateTimePicker
 		},
 		"data": function() {
 			return {

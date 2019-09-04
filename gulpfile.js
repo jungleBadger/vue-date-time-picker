@@ -37,6 +37,7 @@
 	];
 
 	let browserifyInstance;
+	let browserifyInstanceSample;
 	let isProd;
 
 	vueify.compiler.applyConfig({
@@ -78,7 +79,7 @@
 			if (isProd) {
 				fse.remove("samples/dist/js/bundle.js.map");
 			}
-			browserifyInstance.bundle()
+			browserifyInstanceSample.bundle()
 				.on("error", function (err) {
 					log(err);
 				})
@@ -160,7 +161,7 @@
 
 		let plugins = isProd ? [commonShake] : [];
 
-		browserifyInstance = browserify({
+		browserifyInstanceSample = browserify({
 			"entries": modulePath + "/js/main.js",
 			"noParse": ["vue.js"],
 			"plugin": argv.w || argv.watch ? plugins.concat([watchify]) : plugins,
