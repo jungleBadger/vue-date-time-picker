@@ -23,6 +23,7 @@
 				:referenceDate="referenceDateObject"
 				:rangedPoint="rangedPoint"
 				:selectedDate="selectedDate"
+				:customTimeZone="customTimeZone"
 				@dateSelected="updateDate">
 			</calendar-base>
 			<template v-if="selectedDate">

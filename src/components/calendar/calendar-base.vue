@@ -20,6 +20,7 @@
 				:rangedPoint="rangedPoint"
 				@selectDate="updateDate"
 				:referenceDate="referenceDate"
+				:customTimeZone="customTimeZone"
 				:key="day">
 				{{day}}
 			</calendar-date-small>
@@ -46,6 +47,10 @@
 				"default": function () {
 					return "";
 				}
+			},
+			"customTimeZone": {
+				"type": String,
+				"required": false
 			},
 			"minDate": {
 				"type": [String, Object],
