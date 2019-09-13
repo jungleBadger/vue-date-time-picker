@@ -20,7 +20,6 @@
 				:rangedPoint="rangedPoint"
 				@selectDate="updateDate"
 				:referenceDate="referenceDate"
-				:customTimeZone="customTimeZone"
 				:key="day">
 				{{day}}
 			</calendar-date-small>

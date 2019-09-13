@@ -32,10 +32,6 @@
 				"type": Number,
 				"required": true
 			},
-			"customTimeZone": {
-				"type": String,
-				"required": false
-			},
 			"context": {
 				"type": String,
 				"required": true
@@ -96,7 +92,7 @@
 					"day": this.day,
 					"hour": this.selectedDate ? (this.selectedDate.hour || 0) : 0,
 					"minute": this.selectedDate ? (this.selectedDate.minute || 0) : 0
-				}).setZone(this.customTimeZone || "local");
+				});
 			},
 			"isToday": function () {
 				let today = DateTime.fromObject(new Date());
