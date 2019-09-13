@@ -114,7 +114,7 @@
 						"zone": this.customTimeZone || "local",
 						"minute": 0,
 						"second": 0
-					}) : "";
+					}).setZone(this.customTimeZone || "local") : "";
 				} catch (e) {
 					return "";
 				}
