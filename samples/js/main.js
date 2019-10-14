@@ -1,8 +1,6 @@
 (function () {
 	"use strict";
 
-	console.log("xsdadfswsfd")
-
 	const Vue = require("vue");
 
 	return new Vue({
