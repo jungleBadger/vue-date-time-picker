@@ -387,6 +387,7 @@
 			border-radius: 7px;
 			box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, .2);
 			user-select: none;
+			margin-bottom: 12px;
 		}
 	}
 </style>
