@@ -13,7 +13,7 @@
 				v-for="day in daysAmount"
 				:context="'current'"
 				:day="day"
-				:minDate="minDate"
+				:minDate="minDateProcessed"
 				:selectedDate="selectedDate"
 				:selectedMonth="selectedMonth"
 				:selectedYear="selectedYear"
@@ -33,6 +33,7 @@
 <script type="text/javascript">
 (function () {
 	"use strict";
+	const DateTime = require("luxon").DateTime;
 
 	module.exports = {
 		"name": "CalendarBase",
@@ -98,6 +99,9 @@
 			"firstDayLabel": function () {
 				return this.days[this.firstDayOfTheMonth];
 			},
+			"minDateProcessed": function () {
+				return this.minDate ? DateTime.fromObject(new Date(this.minDate)).setZone(this.customTimeZone || "local").minus({"days": 1}) : null;
+			}
 		},
 		"methods": {
 			updateDate(val) {

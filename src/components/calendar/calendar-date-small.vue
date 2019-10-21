@@ -95,29 +95,19 @@
 					"month": month,
 					"day": this.day,
 					"hour": this.selectedDate ? (this.selectedDate.hour || 0) : 0,
-					"minute": this.selectedDate ? (this.selectedDate.minute || 0) : 0
-				}).setZone(this.customTimeZone || "local");
+					"minute": this.selectedDate ? (this.selectedDate.minute || 0) : 0,
+					"zone": this.customTimeZone || "local"
+				});
 			},
 			"isToday": function () {
-				let today = DateTime.fromObject(new Date());
-				return (
-					today.day === this.contextDate.day &&
-					today.month === this.contextDate.month &&
-					today.year === this.contextDate.year
-				);
+				return this.contextDate.hasSame(DateTime.fromObject(new Date()).setZone(this.customTimeZone || "local"), "day");
 			},
 			"isSelected": function () {
-				return this.selectedDate && (
-					this.selectedDate.day === this.contextDate.day &&
-					this.selectedDate.month === this.contextDate.month &&
-					this.selectedDate.year === this.contextDate.year
-				);
+				return this.contextDate.hasSame(this.selectedDate, "day");
 			},
 			"isInactive": function () {
 				return this.minDate && (
-					this.contextDate.day < this.minDate.day &&
-					this.contextDate.month <= this.minDate.month &&
-					this.contextDate.year <= this.minDate.year
+					this.contextDate < this.minDate
 				);
 			},
 			"isReferenceDate": function () {
