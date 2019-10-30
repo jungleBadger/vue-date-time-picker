@@ -19,7 +19,10 @@
 		</button>
 		<aside v-show="appear" ref="popup" :id="elId" class="date-time-picker-popup">
 			<calendar-base
+				:days="days"
+				:months="months"
 				:minDate="minDateObject"
+				:weekPattern="weekPattern"
 				:referenceDate="referenceDateObject"
 				:rangedPoint="rangedPoint"
 				:selectedDate="selectedDate"
@@ -45,6 +48,7 @@
 
 	const CLICK_EVENT = document.documentElement.ontouchstart ? "ontouchstart" : "mousedown";
 	const DateTime = require("luxon").DateTime;
+	const Vue = require("vue");
 
 	module.exports = {
 		"name": "DateTimePicker",
@@ -90,13 +94,22 @@
 				"default": function () {
 					return true;
 				}
+			},
+			"weekPattern": {
+				"type": String,
+				"required": false,
+				"default": function() {
+					return "default";
+				}
 			}
 		},
 		"data": function() {
 			return {
 				"appear": false,
 				"selectedDate": "",
-				"cachedValue": ""
+				"cachedValue": "",
+				"days": {},
+				"months": {}
 			}
 		},
 		"computed": {
@@ -226,6 +239,22 @@
 				this.hideDateTimePicker();
 			}
 		},
+		"beforeMount": function () {
+			require("luxon").Info.weekdays("narrow").forEach((day, index) => {
+				let indexNumber;
+				if (this.weekPattern === "iso") {
+					indexNumber = index + 1;
+
+				} else {
+					indexNumber = index === 6 ? 1 : index + 2;
+				}
+				Vue.set(this.days, indexNumber, day);
+			});
+
+			require("luxon").Info.months("long").forEach((month, index) => {
+				this.months[index] = month;
+			});
+		},
 		"mounted": function () {
 			if (this.value && !this.selectedDate) {
 				let date = new Date(this.value);
@@ -251,6 +280,21 @@
 						this.showDateTimePicker();
 					}
 				}
+			},
+			"weekPattern": function () {
+				let obj = {};
+				require("luxon").Info.weekdays("narrow").forEach((day, index) => {
+					let indexNumber;
+					if (this.weekPattern === "iso") {
+						indexNumber = index + 1;
+
+					} else {
+						indexNumber = index === 6 ? 1 : index + 2;
+					}
+					obj[indexNumber] = day;
+				});
+				this.days = obj;
+
 			}
 		}
 	};
