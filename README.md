@@ -42,6 +42,7 @@ Do a regular `npm install vue-date-time-picker` and the file can be imported eit
 |rangedPoint   |false   |String: `undefined`   |This should be used to work with ranged dates with two date pickers instance, one will be `start` and the another will be `end`   |
 |placeholder   |false   |String: `Insert date`   |Input placeholder   |
 |customTimeZone   |false   |String: `""`   |Custom Time zone string to be applied   |
+|weekPattern   |false   |String: `"default"`   |Define which rules should be applied regarding week start. `default` = sunday to saturday, `iso` = monday to sunday  |
 
 
 
