@@ -4,7 +4,7 @@
 			<h3>Simple date and time selector</h3>
 			<div class="input-wrapper">
 				<label>
-					<date-time-picker v-model="test"></date-time-picker>
+					<date-time-picker v-model="test" :minDate="today"></date-time-picker>
 				</label>
 			</div>
 
@@ -13,7 +13,7 @@
 			<h3>Simple date and time selector with different time-zone</h3>
 			<div class="input-wrapper">
 				<label>
-					<date-time-picker v-model="test2" :customTimeZone="'America/New_York'"></date-time-picker>
+					<date-time-picker v-model="test2" :minDate="today" :customTimeZone="'America/New_York'"></date-time-picker>
 				</label>
 			</div>
 
