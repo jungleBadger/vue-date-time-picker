@@ -1,6 +1,8 @@
 <template>
 	<section class="calendar">
 		<calendar-header
+			:days="days"
+			:months="months"
 			:selectedMonth="selectedMonth"
 			:selectedYear="selectedYear"
 			@updateMonth="changeSelectedDate"
@@ -63,17 +65,31 @@
 			"rangedPoint": {
 				"type": String,
 				"required": false
+			},
+			"days": {
+				"type": Object,
+				"required": true
+			},
+			"months": {
+				"type": Object,
+				"required": true
+			},
+			"weekPattern": {
+				"type": String,
+				"required": false,
+				"default": function() {
+					return "default";
+				}
 			}
 		},
 		"data": function() {
 			return {
 				"selectedMonth": new Date().getMonth(),
-				"selectedYear": new Date().getFullYear(),
-				"days": {},
-				"months": {}
+				"selectedYear": new Date().getFullYear()
 			}
 		},
 		"computed": {
+
 			"remainderDays": function () {
 				let arr = [];
 				for (let i = this.firstDayOfTheMonth; i >= 1; i -= 1) {
@@ -90,13 +106,10 @@
 				return 32 - new Date(this.selectedYear, this.selectedMonth, 32).getDate();
 			},
 			"firstDayOfTheMonth": function () {
-				return new Date(this.selectedYear, this.selectedMonth).getDay() - 1;
+				return this.weekPattern === "iso" ?  new Date(this.selectedYear, this.selectedMonth).getDay() - 1 : new Date(this.selectedYear, this.selectedMonth).getDay();
 			},
 			"lastDayPreviousMonth": function () {
 				return new Date(new Date(this.selectedYear, this.selectedMonth).getTime() - (1000 * 60 * 60 * 23)).getDate();
-			},
-			"firstDayLabel": function () {
-				return this.days[this.firstDayOfTheMonth];
 			},
 			"minDateProcessed": function () {
 				return this.minDate ? DateTime.fromObject(new Date(this.minDate)).setZone(this.customTimeZone || "local").minus({"days": 1}) : null;
@@ -111,15 +124,6 @@
 				this.selectedYear = info.year;
 			}
 		},
-		"beforeMount": function () {
-			require("luxon").Info.weekdays().forEach((day, index) => {
-				this.days[index] = day.charAt(0).toUpperCase() + day.slice(1);
-			});
-
-			require("luxon").Info.months().forEach((month, index) => {
-				this.months[index] = month.charAt(0).toUpperCase() + month.slice(1);
-			});
-		},
 		"mounted": function () {
 			if (this.referenceDate) {
 				this.selectedMonth = this.referenceDate.month -1;
@@ -132,7 +136,8 @@
 					this.selectedMonth = this.referenceDate.month -1;
 					this.selectedYear = this.referenceDate.year;
 				}
-			}
+			},
+
 		}
 	};
 }());
