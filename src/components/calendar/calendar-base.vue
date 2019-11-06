@@ -106,10 +106,16 @@
 				return 32 - new Date(this.selectedYear, this.selectedMonth, 32).getDate();
 			},
 			"firstDayOfTheMonth": function () {
-				return this.weekPattern === "iso" ?  new Date(this.selectedYear, this.selectedMonth).getDay() - 1 : new Date(this.selectedYear, this.selectedMonth).getDay();
+				let day = new Date(this.selectedYear, this.selectedMonth, 1).getDay();
+				if (this.weekPattern === "iso") {
+					return day === 0 ? 6 : day - 1;
+				} else {
+					return day;
+				}
+
 			},
 			"lastDayPreviousMonth": function () {
-				return new Date(new Date(this.selectedYear, this.selectedMonth).getTime() - (1000 * 60 * 60 * 23)).getDate();
+				return DateTime.fromObject(this.selectedYear, this.selectedMonth + 1).setZone(this.customTimeZone || "local").minus({"days": 1}).date;
 			},
 			"minDateProcessed": function () {
 				return this.minDate ? DateTime.fromObject(new Date(this.minDate)).setZone(this.customTimeZone || "local").minus({"days": 1}) : null;
