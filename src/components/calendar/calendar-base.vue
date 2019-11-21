@@ -118,7 +118,8 @@
 			"lastDayPreviousMonth": function () {
 				return DateTime.fromObject({
 					"year": this.selectedYear,
-					"month": this.selectedMonth + 1
+					"month": this.selectedMonth + 1,
+					"day": 1
 				}).setZone(this.customTimeZone || "local").minus({"days": 1}).date;
 			},
 			"minDateProcessed": function () {
