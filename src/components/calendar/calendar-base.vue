@@ -116,10 +116,13 @@
 
 			},
 			"lastDayPreviousMonth": function () {
-				return DateTime.fromObject(this.selectedYear, this.selectedMonth + 1).setZone(this.customTimeZone || "local").minus({"days": 1}).date;
+				return DateTime.fromObject({
+					"year": this.selectedYear,
+					"month": this.selectedMonth + 1
+				}).setZone(this.customTimeZone || "local").minus({"days": 1}).date;
 			},
 			"minDateProcessed": function () {
-				return this.minDate ? DateTime.fromObject(new Date(this.minDate)).setZone(this.customTimeZone || "local").minus({"days": 1}) : null;
+				return this.minDate ? DateTime.fromJSDate(new Date(this.minDate)).setZone(this.customTimeZone || "local") : null;
 			}
 		},
 		"methods": {
