@@ -2,25 +2,25 @@
 	<div class="time-picker">
 		<div class="time-picker-times" v-if="showTimePicker">
 			<div class="field __is_hour">
-				<label>
-					<select class="select" v-model="_hour" @change="timeSelected">
+				<div class="select">
+					<select  v-model="_hour" @change="timeSelected">
 						<option v-for="(hour, index) in hours" :key="hour" :value="index" v-once>
-							{{index >= 10 ? index : `0${index}`}} h
+							{{index >= 10 ? index : `0${index}`}} H
 						</option>
 					</select>
-				</label>
+				</div>
 			</div>
 			<span class="hour-separator">
 				<span class="icon">:</span>
 			</span>
 			<div class="field __is_minute">
-				<label>
-					<select class="select" v-model="_minute" @change="timeSelected">
+				<div class="select">
+					<select v-model="_minute" @change="timeSelected">
 						<option v-for="(minute, index) in minutes" :key="minute" :value="index" v-once>
-							{{index >= 10 ? index : `0${index}`}} m
+							{{index >= 10 ? index : `0${index}`}} M
 						</option>
 					</select>
-				</label>
+				</div>
 			</div>
 		</div>
 		<div class="time-picker-confirm">
@@ -66,7 +66,7 @@
 				this.$emit("cancelSelection");
 			},
 			confirmSelection() {
-				this.$emit("confirmSelection");
+				this.$emit("confirmSelection", true);
 			}
 		},
 		"beforeMount": function () {
@@ -79,16 +79,20 @@
 <style scoped lang="scss" rel="stylesheet/scss">
 
 	@import "../../scss/variables.scss";
+	@import "../../../node_modules/bulma/sass/form/select";
+	@import "../../../node_modules/bulma/sass/form/input-textarea";
 
 	.time-picker {
 		display: flex;
 		flex-direction: row;
 		justify-content: flex-end;
 		align-items: center;
-		padding: 6px 10px;
-		background-color: #f0f0f1;
-		height: 50px;
+		padding: 6px;
+		height: 48px;
 		font-family: $font-stack;
+		z-index: 2;
+		background-color: #fff9f9;
+		box-shadow: 0px -1px 5px 0px rgba(0, 0, 0, 0.1);
 
 		div {
 			height: 100%;
@@ -108,16 +112,12 @@
 
 					.select {
 						font-family: $font-stack;
-						font-size: 16px;
-						background-color: white;
+						font-size: 14px;
 						height: 36px;
-						border: 1px solid  #dbdbdb;
-						color: #363636;
-						max-width: 100%;
-						width: 100%;
-						border-radius: 4px;
-						z-index: 999;
 						cursor: pointer;
+						select {
+							height: 100%;
+						}
 					}
 
 					&.__is_hour {
@@ -150,16 +150,13 @@
 					width: 100%;
 					border-radius: 4px;
 					cursor: pointer;
-					background-color: white;
 					box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
 					font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
-					border: 0;
-					background: $success-color;
 					font-weight: 400;
-					color: #295c99;;
+					color: #295c99;
 					text-transform: uppercase;
-					letter-spacing: 1px;
-					background-color: #ffffff;
+					letter-spacing: 0;
+					border: 1px solid #dbdbdb;
 					&:hover {
 						background-color: whitesmoke;
 					}

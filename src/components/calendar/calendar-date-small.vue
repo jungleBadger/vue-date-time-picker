@@ -164,11 +164,10 @@
 		max-width: 100%;
 		max-height: 100%;
 		width: 100%;
-		min-width: 40px;
-		height: 40px;
+		min-width: 38px;
+		height: 32px;
 		text-align: center;
 		cursor: pointer;
-		padding: 7px;
 		transition: background-color 0.2s;
 		position: relative;
 		font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
@@ -248,6 +247,7 @@
 			justify-content: center;
 			font-family: 'IBM Plex Mono', monospace;
 			font-weight: 300;
+			font-size: 14px;
 		}
 
 	}

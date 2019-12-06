@@ -166,9 +166,10 @@
 		-webkit-box-direction: normal;
 		-ms-flex-direction: column;
 		flex-direction: column;
+		z-index: 1;
 		.calendar-body {
 			display: grid;
-			grid-template-columns: repeat(7, 1fr);
+			grid-template-columns: repeat(7, minmax(38px, 1fr));
 			align-content: flex-start;
 			grid-gap: 0px;
 			justify-items: center;
