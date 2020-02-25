@@ -49,6 +49,20 @@
 			</div>
 
 		</section>
+		<section>
+			<h3>Input as slot</h3>
+			<div class="input-wrapper">
+				<label>
+					<date-time-picker ref="datePicker" v-model="test4">
+						<input
+							slot="inputElement"
+							@click.self.stop="showDateTimePicker"
+							:value="test4"
+							placeholder="Insert date in custom input"/>
+					</date-time-picker>
+				</label>
+			</div>
+		</section>
 	</div>
 </template>
 <script type="text/javascript">
@@ -65,14 +79,24 @@
 				"test2": new Date(),
 				"test3": new Date(),
 				"today": new Date(),
+				"test4": new Date(),
 				"rangeStart": "",
 				"rangeEnd": "",
 				"weekPattern": "default"
 			}
 		},
+		"computed": {
+			"selectedDateFormatted": function f() {
+				return this.$refs.datePicker ? this.$refs.datePicker.selectedDateFormatted : "";
+			}
+		},
 		"methods": {
 			changeWeekPattern(scheme) {
 				this.weekPattern = scheme;
+			},
+			showDateTimePicker() {
+				this.$refs.datePicker.showDateTimePicker();
+				console.log();
 			}
 		}
 	};
