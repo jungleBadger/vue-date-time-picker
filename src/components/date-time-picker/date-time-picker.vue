@@ -1,27 +1,67 @@
 <template>
 	<div class="date-time-picker-wrapper">
-		<div class="date-time-picker-input-wrapper">
-			<slot
-				name="inputElement">
+		<slot
+			name="inputElement">
+			<div class="date-time-picker-input-wrapper">
 				<span class="date-time-picker-input-icon is-left">
-					<svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="calendar-edit" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-calendar-edit fa-w-14"><path fill="currentColor" d="M243.1 234.1l46.8 46.8c2 2 2 5.2 0 7.2L175.4 402.6l-48.2 5.4c-6.4.7-11.9-4.7-11.2-11.2l5.4-48.2 114.5-114.5c2-2 5.2-2 7.2 0zm83-10.8l-25.4-25.4c-7.9-7.9-20.7-7.9-28.6 0l-19.5 19.5c-2 2-2 5.2 0 7.2l46.8 46.8c2 2 5.2 2 7.2 0l19.5-19.5c7.9-7.9 7.9-20.7 0-28.6zM448 112v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z" class=""></path></svg>
+					<svg
+						aria-hidden="true"
+						focusable="false"
+						role="img"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 448 512"
+						class="svg-inline--fa fa-calendar-edit fa-w-14">
+						<path
+							fill="currentColor"
+							d="M243.1 234.1l46.8 46.8c2 2 2 5.2 0 7.2L175.4 402.6l-48.2 5.4c-6.4.7-11.9-4.7-11.2-11.2l5.4-48.2 114.5-114.5c2-2 5.2-2 7.2 0zm83-10.8l-25.4-25.4c-7.9-7.9-20.7-7.9-28.6 0l-19.5 19.5c-2 2-2 5.2 0 7.2l46.8 46.8c2 2 5.2 2 7.2 0l19.5-19.5c7.9-7.9 7.9-20.7 0-28.6zM448 112v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z">
+						</path>
+					</svg>
 				</span>
 				<input
 					class="date-time-picker-input"
 					@click.self.stop="showDateTimePicker"
 					:value="selectedDateFormatted"
-					:placeholder="inputPlaceholder"/>
+					:placeholder="inputPlaceholder"
+				/>
 				<span class="date-time-picker-input-icon is-right">
-					<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-caret-down fa-w-10"><path fill="currentColor" d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z" class=""></path></svg>
+					<svg
+						aria-hidden="true"
+						focusable="false"
+						role="img"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 320 512"
+						class="svg-inline--fa fa-caret-down fa-w-10">
+						<path
+							fill="currentColor"
+							d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
+						</path>
+					</svg>
 				</span>
-			</slot>
+			</div>
 
-		</div>
-		<button class="button is-danger is-inverted date-time-picker-clear-button" :disabled="!selectedDateFormatted" :class="{'__is-disabled': !selectedDateFormatted}" @click="cleanInput" v-if="selectedDate">
-			<span class="icon">
-				<svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-times fa-w-10"><path data-v-64869e31="" fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" class=""></path></svg>
-			</span>
-		</button>
+			<button
+				v-if="selectedDate"
+				type="button"
+				class="button is-danger is-inverted date-time-picker-clear-button"
+				:disabled="!selectedDateFormatted"
+				:class="{'__is-disabled': !selectedDateFormatted}"
+				@click="cleanInput">
+				<span class="icon">
+					<svg
+						aria-hidden="true"
+						focusable="false"
+						role="img"
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 320 512"
+						class="svg-inline--fa fa-times fa-w-10">
+						<path
+							fill="currentColor"
+							d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z">
+						</path>
+					</svg>
+				</span>
+			</button>
+		</slot>
 		<aside v-show="appear" ref="popup" :id="elId" class="date-time-picker-popup">
 			<calendar-base
 				:days="days"
