@@ -62,7 +62,12 @@
 				</span>
 			</button>
 		</slot>
-		<aside v-show="appear" ref="popup" :id="elId" class="date-time-picker-popup">
+		<aside
+			v-show="appear"
+			ref="popup"
+			:id="elId"
+			:class="{'__is-right-aligned': align === 'right'}"
+			class="date-time-picker-popup">
 			<calendar-base
 				:days="days"
 				:months="months"
@@ -145,6 +150,13 @@
 				"required": false,
 				"default": function() {
 					return "default";
+				}
+			},
+			"align": {
+				"type": String,
+				"required": false,
+				"default": function() {
+					return "left";
 				}
 			}
 		},
@@ -474,15 +486,16 @@
 
 		.date-time-picker-popup {
 			position: absolute;
-			right: 39px;
-			top: 100%;
-			z-index: 9999;
+			z-index: 999999999;
 			background-color: white;
 			min-width: 320px;
 			border-radius: 7px;
 			box-shadow: 0px 1px 18px 3px rgba(0, 0, 0, .1);
 			user-select: none;
-			margin-bottom: 12px;
+			transform: translateX(0) translateY(150px);
+			&.__is-right-aligned {
+				transform: translateX(-66px) translateY(150px);
+			}
 		}
 	}
 </style>
