@@ -43,19 +43,20 @@ Do a regular `npm install vue-date-time-picker` and the file can be imported eit
 |placeholder   |false   |String: `Insert date`   |Input placeholder   |
 |customTimeZone   |false   |String: `""`   |Custom Time zone string to be applied   |
 |weekPattern   |false   |String: `"default"`   |Define which rules should be applied regarding week start. `default` = sunday to saturday, `iso` = monday to sunday  |
+|align   |false   |String: `"left"`   |Define the alignment of the calendar popup relative to the input  |
 
 
 
 ### Roadmap
 
-This project is still on development and on its early phases. I had the need of such a component on my work so I thought that would be nice to open source it and keep improving over time. Any contributions, feature requests, feedbacks and/or tips are very well appreaciated. Feel free to open a PR or raise an issue at the Issues section. 
+This project is still on development and on its early phases. I had the need of such a component on my work so I thought that would be nice to open source it and keep improving over time. Any contributions, feature requests, feedbacks and/or tips are very well appreaciated. Feel free to open a PR or raise an issue at the Issues section.
 
 Next features / needing help
 * Replace `luxon` by a vanilla js approach to reduce footprint
 * Handle events
-* Create more customisation options and enhance the ranged feature 
+* Create more customisation options and enhance the ranged feature
 * Create a more complete sample page
-* Improve accessibility 
+* Improve accessibility
 * Improve locale support on labels
 
 
