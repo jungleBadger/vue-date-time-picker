@@ -1,6 +1,6 @@
 {
   "name": "@jungle_d/vue-date-time-picker",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "description": "Open source vue.js component to handle date and time values\n",
   "main": "./dist/js/bundle.js",
   "scripts": {
@@ -56,7 +56,7 @@
     "istanbul": "^0.4.5",
     "izitoast": "^1.4.0",
     "luxon": "^1.24.1",
-    "mocha": "^5.2.0",
+    "mocha": "^8.1.1",
     "node-sass": "^4.14.1",
     "node-waves": "^0.7.6",
     "nyc": "^14.1.1",
@@ -65,7 +65,7 @@
     "replace": "^1.2.0",
     "run-sequence": "^2.2.1",
     "sw-precache": "^5.2.1",
-    "swagger-ui-dist": "^3.31.1",
+    "swagger-ui-dist": "^3.32.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "vue": "^2.6.11",
