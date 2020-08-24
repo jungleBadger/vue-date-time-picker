@@ -492,7 +492,8 @@
 			border-radius: 7px;
 			box-shadow: 0px 1px 18px 3px rgba(0, 0, 0, .1);
 			user-select: none;
-			transform: translateX(0) translateY(150px);
+			top: 0;
+			transform: translateX(0) translateY(64px);
 			&.__is-right-aligned {
 				transform: translateX(-66px) translateY(150px);
 			}
