@@ -139,6 +139,9 @@
 			if (this.referenceDate) {
 				this.selectedMonth = this.referenceDate.month -1;
 				this.selectedYear = this.referenceDate.year;
+			} else if (this.selectedDate) {
+				this.selectedMonth = this.selectedDate.month -1
+				this.year = this.selectedDate.year;
 			}
 		},
 		"watch": {

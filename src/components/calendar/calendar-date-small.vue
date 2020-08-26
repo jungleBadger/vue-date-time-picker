@@ -118,7 +118,7 @@
 				);
 			},
 			"intervalInfo": function () {
-				if (this.referenceDate && this.minDate && this.selectedDate) {
+				if (this.referenceDate && this.selectedDate) {
 					let interval;
 					if (this.rangedPoint === "start") {
 						interval = Interval.fromDateTimes(
