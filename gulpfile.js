@@ -4,34 +4,27 @@
 	"use strict";
 	require("dotenv").config({"silent": true});
 	const gulp = require("gulp");
-	const packageJson = require("./package.json");
 	const argv = require("yargs").argv;
 	const browserify = require("browserify");
 	const commonShake = require("common-shakeify");
 	const cond = require("gulp-cond");
-	const fs = require("fs");
 	const fse = require("fs-extra");
 	const rename = require("gulp-rename");
 	const cssnano = require("cssnano");
 	const cache = require("gulp-cache");
 	const postcss = require("gulp-postcss");
-	const watchify = require("watchify");
 	const buffer = require("vinyl-buffer");
 	const source = require("vinyl-source-stream");
 	const sourcemaps = require("gulp-sourcemaps");
 	const sass = require("gulp-sass");
 	const babelify = require("babelify");
-	const envify = require("gulp-envify");
 	const vueify = require("vueify");
 	const eslint = require("gulp-eslint");
 	const plumber = require("gulp-plumber");
-	const path = require("path");
 	const cssnext = require("postcss-cssnext");
 	const log = require("fancy-log");
-	const jsdoc = require("gulp-jsdoc3");
 	const colors = require("ansi-colors");
-	const replace = require("replace");
-	const terser = require('gulp-terser');
+	const terser = require("gulp-terser");
 	const cssUglifier = [
 		cssnano()
 	];
@@ -41,7 +34,7 @@
 	let isProd;
 
 	vueify.compiler.applyConfig({
-		"postcss": [cssnext()]
+		"postcss": [cssnext({})]
 	});
 
 	process.env.NODE_ENV = argv.prod ? "production" : "development";
@@ -114,7 +107,7 @@
 		browserifyInstance = browserify({
 			"entries": "./src/js/main.js",
 			"noParse": ["vue.js"],
-			"plugin": argv.w || argv.watch ? plugins.concat([watchify]) : plugins,
+			"plugin": plugins,
 			"cache": {},
 			"packageCache": {},
 			"debug": !isProd,
@@ -164,7 +157,7 @@
 		browserifyInstanceSample = browserify({
 			"entries": modulePath + "/js/main.js",
 			"noParse": ["vue.js"],
-			"plugin": argv.w || argv.watch ? plugins.concat([watchify]) : plugins,
+			"plugin": plugins,
 			"cache": {},
 			"packageCache": {},
 			"debug": !isProd
