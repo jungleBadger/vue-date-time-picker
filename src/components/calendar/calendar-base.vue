@@ -85,16 +85,12 @@
 		},
 		"data": function() {
 			return {
+				"selectedMonth": new Date().getMonth(),
+				"selectedYear": new Date().getFullYear()
 			}
 		},
-
 		"computed": {
-			"selectedMonth": function () {
-				return this.selectedDate ? new Date(this.selectedDate).getMonth() : new Date().getMonth();
-			},
-			"selectedYear": function () {
-				return this.selectedDate ? new Date(this.selectedDate).getFullYear() : new Date().getFullYear();
-			},
+
 			"remainderDays": function () {
 				let arr = [];
 				for (let i = this.firstDayOfTheMonth; i >= 1; i -= 1) {
