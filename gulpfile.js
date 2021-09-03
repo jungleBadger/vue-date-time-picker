@@ -16,7 +16,7 @@
 	const buffer = require("vinyl-buffer");
 	const source = require("vinyl-source-stream");
 	const sourcemaps = require("gulp-sourcemaps");
-	const sass = require("gulp-sass");
+	const sass = require("gulp-sass")(require("sass"));
 	const babelify = require("babelify");
 	const vueify = require("vueify");
 	const eslint = require("gulp-eslint");
