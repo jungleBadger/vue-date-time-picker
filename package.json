@@ -52,7 +52,7 @@
     "gulp-uglify": "^3.0.2",
     "izitoast": "^1.4.0",
     "js-yaml": "^4.1.0",
-    "luxon": "^1.28.0",
+    "luxon": "^1.28.1",
     "mocha": "^8.4.0",
     "node-sass": "^6.0.1",
     "node-waves": "^0.7.6",
